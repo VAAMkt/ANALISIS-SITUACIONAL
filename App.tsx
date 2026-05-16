@@ -31,7 +31,7 @@ const App: React.FC = () => {
     const emptyAnswers: Partial<DiagnosisAnswers> = {};
     for (const areaKey in DIAGNOSIS_QUESTIONS) {
         const key = areaKey as DiagnosisArea;
-        emptyAnswers[key] = Array(DIAGNOSIS_QUESTIONS[key].questions.length).fill({ level: 0, opportunity: '' });
+        emptyAnswers[key] = Array.from({ length: DIAGNOSIS_QUESTIONS[key].questions.length }, () => ({ level: 0, opportunity: '' }));
     }
     return emptyAnswers as DiagnosisAnswers;
   }, []);
